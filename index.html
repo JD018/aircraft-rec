@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroTech Rec by Jadon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="logo.svg" alt="AeroTech Logo" class="logo" id="logo">
+        <h1>AeroTech Rec</h1>
+        <p class="subtext">Programmed by Jadon</p>
+        <button class="launch-button" id="launchBtn" onclick="localStorage.setItem('question', 1); localStorage.setItem('score', 0);">Start</button>
+    </div>
+
+    <!-- Popup Structure -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h1>Program Notice</h1>
+            <br>
+            <h2 class="subtext">Terms and Conditions</h2>
+            <p class="subtext">Authorized for usage of the Florida Tech Flight Team ONLY</p>
+            <p class="subtext">Unauthorized distribution or usage of this program is prohibited</p>
+            <p class="subtext">Unauthorized editing or reverse engineering of this program is prohibited</p>
+            <p class="subtext">The Programmer will not be held liable for usage of any type</p>
+            <br><br><br>
+            <h2 class="subtext">Program Synopsis</h2>
+            <p class="subtext">This program will search the web for aircraft images and generate a quiz similar to the Aircraft Rec ground competition event. Ten questions will be generated and you will be given three choices of aircraft to choose from. If the image is not relevant to the aircraft, you may click the Regenerate button to display an alternate image.</p>
+            <br><br><br>
+            <p class="subtext">Program and Logo Copyright Jadon Duff</p>
+            <button class="launch-button" id="confirmLaunchBtn">Launch</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

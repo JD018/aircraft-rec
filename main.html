@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroTech Rec by Jadon</title>
+    <link rel="stylesheet" href="main-styles.css">
+</head>
+<body>
+
+    <!-- Top Menu Bar -->
+    <div class="top-menu">
+        <div class="logo-container">
+            <img src="logo.svg" alt="Logo" class="logo">
+            <div class="title-container">
+                <div class="aerotech">AeroTech</div>
+                <div class="programmed-by">Programmed by Jadon</div>
+            </div>
+        </div>
+        <div class="time num" style="font-size: xx-large;" id="question">Question ?</div>
+        <div>
+            <div class="time-container">
+                <span class="time num" id="local-time">--:--:--</span><span class="time num" id="local-suffix"> --</span><br>
+                <span class="time num" id="utc-time">----</span> <!-- Second time div -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <div id="sidebar-toggle">
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <script src="times.js"></script>
+
+    <div class="container">
+    </div>
+    <br><br>
+    <div style="text-align: center;">
+        <button class="select-button" id="b1" onclick="check(1)">Loading...</button><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <button class="select-button" id="b2" onclick="check(2)">Loading...</button><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <button class="select-button" id="b3" onclick="check(3)">Loading...</button>
+        <br>
+        <button class="select-button" id="b4" onclick="regenerate()">Regenerate</button>
+
+    </div>
+    <script src="image_gen.js"></script>
+
+
+</body>
+</html>

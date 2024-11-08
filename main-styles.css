@@ -1,0 +1,456 @@
+@font-face {
+    font-family: 'tech';
+    src: url('font.ttf');
+}
+
+html {
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55); /* 35% opaque black overlay */
+    z-index: -1; /* Ensure it is behind the content */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url('background.jpg') no-repeat center center fixed; /* Set background image */
+    background-size: 100% 100%; /* Stretch image to fit the entire screen */
+    font-family: 'tech', Arial, sans-serif;
+    color: #ccc;
+}
+
+button {
+    font-family: 'tech';
+}
+
+.top-menu {
+    width: 100%;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.15); /* Slightly transparent black */
+    border-bottom: 2px solid #ffd700; /* Electric Yellow border at the bottom */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 95px; /* Larger logo */
+    height: auto;
+    margin-right: 15px;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.aerotech {
+    font-size: 24px;
+    color: #ffd700; /* Electric Yellow */
+}
+
+.programmed-by {
+    font-size: 12px;
+    color: #ccc; /* Lighter Grey */
+}
+
+.dashboard-title {
+    font-size: 36px;
+    color: #ffd700; /* Electric Yellow text for Dashboard */
+}
+
+.num {
+    font-family: monospace;
+}
+
+.time {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+/* Glow effect for the logo */
+@keyframes glow {
+    0% {
+        filter: none;
+    }
+    25% {
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 0 10px rgba(255, 215, 9, 0.5)) drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
+    }
+    75% {
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+    }
+    100% {
+        filter: none;
+    }
+}
+
+
+.logo2 {
+    width: 300px; /* Logo size */
+    height: auto;
+    margin-bottom: -60px;
+    animation: glow 6s infinite; /* Apply the glow animation */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden off-screen */
+    width: 250px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding-top: 20px;
+}
+
+.sidebar.open {
+    left: 0; /* Slide in the sidebar */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim background when sidebar opens */
+    display: none;
+    z-index: 999;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.launch-button {
+    background-color: #333; /* Grey Background */
+    border: 2px solid #ffd700; /* Electric Yellow Border */
+    color: #ccc;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+    display: block;
+    width: 200px;
+    text-align: center;
+    font-family: 'tech';
+}
+
+.launch-button:hover {
+    background-color: #444;
+}
+
+.sidebar-menu {
+    padding: 20px;
+    overflow-y: auto; /* Make sidebar scrollable */
+    max-height: 100%; /* Ensure full height usage */
+}
+
+.sidebar-menu button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed;
+    top: 100px; /* Adjust to be just under the menu bar */
+    left: 0;
+    width: 40px;
+    height: 50px;
+    background-color: #333;
+    border: 2px solid #ffd700;
+    border-radius: 0 10px 10px 0; /* Rounded right borders */
+    color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001; /* Above sidebar */
+    transition: left 0.3s ease;
+}
+
+.sidebar-toggle.open {
+    left: 250px; /* Moves with the sidebar */
+}
+
+.time-container {
+    text-align: right;
+}
+
+/* Style for centering the content-section */
+.content-section {
+    display: flex;
+    justify-content: center;  /* Align horizontally */
+    align-items: center;  /* Align vertically */
+    height: 90vh;  /* Set height to 90% of the viewport */
+    width: 100%;  /* Full width */
+    position: relative;  /* Relative positioning for iframe alignment */
+}
+
+/* Style for the iframe */
+.content-iframe {
+    width: 100%;  /* 90% of the container's width */
+    height: 100%;  /* 9/10 of the container's height */
+    border: none;  /* Remove the border for a cleaner look */
+    scale: 0.9;
+}
+
+.container {
+    text-align: center;
+    margin-top: 5%;
+}
+
+
+
+/* Preset Frequency Section */
+.preset-frequency {
+    padding: 40px; /* Increased padding */
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    border-radius: 8px; /* Retain border-radius if desired */
+    /* Removed background-color */
+}
+
+
+.preset-frequency h2 {
+    margin-bottom: 10px;
+}
+
+.preset-frequency .launch-button {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+
+/* Tune Section */
+.tune-section {
+    padding: 40px;
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.tune-section h2 {
+    margin-bottom: 10px;
+    /* color: white; Adjust to match your theme */
+}
+
+.tune-controls {
+    display: flex;
+    gap: 5px; /* More space between the input columns */
+}
+
+/* Styling for the up/down controls */
+.tune-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px; /* Space between buttons and input */
+}
+
+/* Number input styling */
+.tune-input {
+    width: 40px;
+    height: 80px; /* Make it a tall rectangle */
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    background-color: rgba(128, 128, 128, 0.2); /* Transparent grey background */
+    border: 2px solid #ffd700; /* Electric yellow border */
+    border-radius: 4px; /* Optional */
+    margin: 10px 0; /* Padding between the number input and buttons */
+    font-family: monospace;
+}
+
+/* Triangle button styling */
+.up-button, .down-button {
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    border: 2px solid #ffd700; /* Electric yellow border */
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 5px; /* Fit the triangle nicely */
+}
+
+/* Triangle shapes */
+.up-button::before {
+    content: "\25B2"; /* Upward triangle */
+    font-size: 18px;
+}
+
+.down-button::before {
+    content: "\25BC"; /* Downward triangle */
+    font-size: 18px;
+}
+
+/* Hover and active effects for buttons */
+.up-button:hover, .down-button:hover {
+    background-color: #444; /* Darken on hover */
+}
+
+.up-button:active, .down-button:active {
+    background-color: #555; /* Darken further when pressed */
+}
+
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+
+.intercept-section {
+    border-radius: 8px; /* Optional border radius */
+    bottom: 0; /* Position at the bottom of the viewport */
+
+    position: absolute;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
+    text-align: center;
+}
+
+.intercept-section p {
+    margin-top: 10px; /* Space between button and text */
+}
+
+.intercept-section button {
+    /* Ensure the button remains centered */
+    margin: 0 auto;
+}
+
+
+
+
+.bottom-right {
+    position: absolute;
+    bottom: 5vh;
+    right: 10px;
+    width: 150px; /* Adjust size to fit within view */
+    animation: pulse 1.5s infinite; /* Pulsing effect */
+    transition: all 1s ease; /* Smooth transition */
+}
+
+.logo-loading {
+    width: 150px;
+    height: auto;
+    margin-bottom: -60px;
+    /* display: hidden; */
+}
+
+/* Pulsing animation */
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.aircraft-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    /* width: 200px; */
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
+}
+
+.select-button {
+    background-color: #333; /* Grey Background */
+    border: 2px solid #ffd700; /* Electric Yellow Border */
+    color: #ccc;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+    font-family: monospace;
+}
+
+
+
+
+
+
+  /* Popup Container */
+  .popup {
+    position: fixed;
+    bottom: -120px; /* Initially hidden, just off the bottom of the screen */
+    right: 20px;
+    background-color: #4CAF50; /* Green for correct */
+    color: white;
+    padding: 20px 30px; /* Increase padding for a bigger popup */
+    border-radius: 15px; /* Rounded corners */
+    font-size: 22px; /* Larger text */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: all 0.5s ease-in-out; /* Smooth transition for both appearance and disappearance */
+    z-index: 9999; /* Ensure it appears above other content */
+  }
+
+  /* Show popup */
+  .popup.show {
+    bottom: 20px; /* Slide the popup to be flush with the bottom of the screen */
+    opacity: 1; /* Make it fully visible */
+  }
+
+  /* Correct Popup Style */
+  .popup.correct {
+    background-color: #4CAF50; /* Green for correct */
+  }
+
+  /* Incorrect Popup Style */
+  .popup.incorrect {
+    background-color: #f44336; /* Red for incorrect */
+  }

@@ -1,0 +1,154 @@
+@font-face {
+    font-family: 'tech';
+    src: url('font.ttf');
+}
+
+html {
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35); /* 50% opaque black overlay */
+    z-index: -1; /* Ensure it is behind the content */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url('background.jpg') no-repeat center center fixed; /* Set background image */
+    background-size: 100% 100%; /* Stretch image to fit the entire screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #ccc;
+    margin-top: -4%;
+    font-family: 'tech';
+}
+
+button {
+    font-family: 'tech';
+}
+
+.container {
+    text-align: center;
+}
+/* Popup styling */
+.popup {
+    display: none; /* Hidden initially */
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
+    border: 3px solid #ffd700; /* Gold border */
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.popup-content {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.popup h2 {
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+.confirm-launch {
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 18px;
+    background-color: #ffd700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.confirm-launch:hover {
+    background-color: #e5c200; /* Slightly darker gold on hover */
+}
+
+
+.logo {
+    width: 300px;
+    height: auto;
+    margin-bottom: -60px;
+}
+
+h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+.subtext {
+    font-size: 16px;
+    margin-top: 5px;
+    color: #ccc; /* Lighter Grey for the subtext */
+}
+
+.launch-button {
+    background-color: #333; /* Grey Background */
+    border: 2px solid #ffd700; /* Electric Yellow Border */
+    color: #ccc;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+}
+
+.launch-button:hover {
+    background-color: #555;
+}
+
+/* Pulsing animation */
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes movement {
+    0% {
+        bottom: 5vh;
+    }
+    50% {
+        bottom: 7vh;
+    }
+    100% {
+        bottom: 5vh;
+    }
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 5vh;
+    right: 10px;
+    width: 150px; /* Adjust size to fit within view */
+    animation: pulse 1.5s infinite; /* Pulsing effect */
+    transition: all 1s ease; /* Smooth transition */
+}
+
+
+
+.subtext2 {
+    font-family: monospace;
+    font-size: x-large;
+}
